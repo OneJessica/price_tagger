@@ -19,3 +19,9 @@ img2pdf.save_pdf('a.pdf')       #存成pdf,文件名可有可无，无时默认�
 ```
 ## 其他使用
 web端直接使用，使用streamlit 展示界面使用，见exhinit.py
+需要安装streamlit (pip install streamlit) 和 git （brew intall git）
+ ```
+git clone https://github.com/OneJessica/price_tagger.git
+cd price_tagger
+streamlit run exhibit.py
+```
