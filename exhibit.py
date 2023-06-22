@@ -12,7 +12,7 @@ with tab1:
     area = st.text_input('产地')
     cata = st.text_input('货号')
     unit = st.text_input('单位')
-    price = st.text_input('价格')
+    price = st.number_input('价格',format='%f',min_value=0)
     text = [name,spec,area,cata,unit,price]
 
     def get_res(text):
