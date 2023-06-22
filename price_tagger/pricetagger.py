@@ -1,6 +1,6 @@
 import pandas as pd
 from PIL import Image,ImageDraw,ImageShow,ImageFont
-from tqdm import tqdm
+# from tqdm import tqdm
 import time 
 import os
 base_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
