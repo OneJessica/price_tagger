@@ -7,9 +7,7 @@ from PIL import Image,ImageDraw,ImageFont
 import pandas as pd
 import time
 from PIL import Image
-import cv2
-import numpy as np
-import ddddocr
+
 st.set_page_config('价签生成器',page_icon = '💰')
 tab1,tab4,tab3 = st.tabs(['价签生成','价签内部查询','文字生成',])
 
