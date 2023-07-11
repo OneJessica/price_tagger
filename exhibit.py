@@ -67,8 +67,8 @@ with tab1:
                 data =  file,
                 file_name="dowloaded.pdf",
                 mime = 'application/octet-stream')
-        except:
-            pass
+    except:
+        pass
     def generate(name='',spec='',area='',cata='',unit=''):
         name = st.text_input('名称',value=name,key='name'+name+str(time.time()))
         if len(spec)<1:
