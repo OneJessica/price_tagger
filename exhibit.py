@@ -36,6 +36,39 @@ with st.sidebar:
         st.sidebar.write('结果文件夹为空，请放心使用')
 
 with tab1:
+    name = st.text_input('名称',)
+       
+    spec = st.text_input('规格',)
+     
+    area = st.text_input('产地',)
+    cata = st.text_input('货号',)
+       
+    unit = st.text_input('单位',)
+    price = st.number_input('价格',format='%f',min_value=0.0,)
+    text = [name,spec,area,cata,unit,price]
+
+
+    if st.button('生成',):
+        get_res(text)
+        img_list = glob('results/*.png')
+        for i in img_list:
+            if i.endswith('png'):
+                st.image(i)
+    if st.button('合成pdf文件',):
+        img_list = glob('results/*.png')
+        img2pdf = Img2pdf(img_list)
+        img2pdf.save_pdf()
+    pdf = st.selectbox('选择需要下载的pdf文件',glob('results/*.pdf'),)
+
+    try:
+        with open(pdf,'rb') as file:
+            st.download_button(
+            label = '下载合并后的pdf文件',
+                data =  file,
+                file_name="dowloaded.pdf",
+                mime = 'application/octet-stream')
+        except:
+            pass
     def generate(name='',spec='',area='',cata='',unit=''):
         name = st.text_input('名称',value=name,key='name'+name+str(time.time()))
         if len(spec)<1:
@@ -83,7 +116,7 @@ with tab1:
             pass
 
 
-    generate(name='',spec='',area='',cata='',unit='')
+    # generate(name='',spec='',area='',cata='',unit='')
 
 with tab3:
     ch_text = st.text_input('文字',value = '中药饮片')
