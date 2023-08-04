@@ -44,7 +44,7 @@ with tab1:
     cata = st.text_input('货号',)
        
     unit = st.text_input('单位',)
-    price = st.number_input('价格',format='%f',min_value=0.0,)
+    price = st.number_input('价格',format='%f',)
     text = [name,spec,area,cata,unit,price]
 
 
@@ -89,7 +89,7 @@ with tab1:
         else:
             unit_key = 'unit'+unit+name
         unit = st.text_input('单位',value=unit,key=unit_key)
-        price = st.number_input('价格',format='%f',min_value=0.0,key='price'+name)
+        price = st.number_input('价格',format='%f',)
         text = [name,spec,area,cata,unit,price]
 
 
