@@ -6,7 +6,7 @@ if path_file not in sys.path:
     sys.path.append(path_file)
 from image2pdf import Img2pdf
 from pricetagger import Add
-from code_spider import CodeSpider
+from codespider import CodeSpider
 
 
 
