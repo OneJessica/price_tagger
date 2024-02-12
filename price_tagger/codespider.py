@@ -45,12 +45,12 @@ class CodeSpider():
 
         # 获取验证码
         img_data = s.get(url + '/index/verify.html?time=', headers=self.headers).content
-        with open('verification_code.png', 'wb') as v:
+        with open('data/verification_code.png', 'wb') as v:
             v.write(img_data)
 
         # 解验证码
         ocr = ddddocr.DdddOcr()
-        with open('verification_code.png', 'rb') as f:
+        with open('data/verification_code.png', 'rb') as f:
             img_bytes = f.read()
         code = ocr.classification(img_bytes)
         # logger.info('当前验证码为 ' + code)
