@@ -1,6 +1,7 @@
 import pandas as pd
 from PIL import Image,ImageDraw,ImageShow,ImageFont
-# from tqdm import tqdm
+
+
 import time 
 import os
 base_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
@@ -41,13 +42,13 @@ class Add():
         
     def get_area(self,area):
        
-        return self.text((94,130),str(area),22)
+        return self.text((94,120),str(area),22)
     def get_cata(self,cata):
         
-        return self.text((75,191),str(cata),20)
+        return self.text((75,181),str(cata),20)
     def get_unit(self,unit):
         
-        return self.text((184,191),str(unit),22)
+        return self.text((184,181),str(unit),22)
     def get_spec(self,spec):
         
         if len(spec) < 10 :
@@ -64,7 +65,7 @@ class Add():
             #     self.text((287,120+i*15),s,15)
     def get_price(self,price):
         price = float(price)
-        return self.text((300,200),"%.2f"%price,60)
+        return self.text((300,180),"%.2f"%price,60)
     def save(self,file_name):
         self.img.save(file_name)
         self.img.close()
