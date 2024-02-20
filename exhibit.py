@@ -30,7 +30,7 @@ def main():
             st.write(i)
             os.remove(i)
     def remove_file(file):
-        file_path = os.path.dirname(__file__)+'file'
+        file_path = os.path.dirname(__file__)+file
         os.remove(file_path)
         st.write(f'正在删除{file_path}')
     def write_data(text):
