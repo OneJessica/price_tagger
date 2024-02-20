@@ -9,8 +9,8 @@ from PIL import Image,ImageDraw,ImageFont
 import pandas as pd
 import time
 from PIL import Image
-import cv2
-import numpy as np
+# import cv2
+# import numpy as np
 
 
 def main():
