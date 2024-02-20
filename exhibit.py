@@ -38,6 +38,9 @@ def main():
             st.write('文件夹含有不相关早期内容，请及时清理。')
             st.write(files)
             st.button('清空已有文件', on_click=remove)
+            delefile = st.selectbox('选择需要删除文件',glob('results/*.png'),key='dele')
+            if st.button('删除文件'):
+                os.remove(os.path.dirname(__file__)+'/'+delefile)
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
