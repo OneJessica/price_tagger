@@ -112,7 +112,8 @@ def main():
                 
                 get_res(text)
                 img_list = glob('results/*.png')
-                for i in img_list:
+                st.info(f'当前图片数量为：{len(img_list)}')
+                for i in sorted(img_list):
                     if i.endswith('png'):
                         st.image(i)
 
