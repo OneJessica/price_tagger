@@ -27,11 +27,11 @@ def main():
         filedir = os.path.dirname(__file__)+'/results/*'
         for i in glob(filedir):
             os.remove(i)
-            st.write(f'已删除{i}')
+            st.success(f'已删除{i}')
     def remove_file(file):
         file_path = os.path.dirname(__file__)+'/'+file
         os.remove(file_path)
-        st.write(f'已删除{file_path}')
+        st.success(f'已删除{file_path}')
     def write_data(text):
         with open('added_data.csv','a+') as f:
             #text = [name,spec,area,cata,unit,price]
@@ -42,7 +42,7 @@ def main():
 
         files = glob('results/*')
         if files:
-            st.write('文件夹含有不相关早期内容，请及时清理。')
+            st.warning('文件夹含有不相关早期内容，请及时清理。')
             st.write(files)
             st.button('清空已有文件', on_click=remove)
             delefile = st.selectbox('选择需要删除文件',glob('results/*'))
@@ -53,7 +53,7 @@ def main():
                 is_true = st.checkbox('同意',value =True)
                 if is_true and st.button('确认',on_click=remove_file,kwargs={'file':delefile}):
                     # os.remove(delefile)
-                    st.write(f'已删除{delefile}')
+                    st.success(f'已删除{delefile}')
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
