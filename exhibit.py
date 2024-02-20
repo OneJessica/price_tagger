@@ -38,9 +38,14 @@ def main():
             st.write('文件夹含有不相关早期内容，请及时清理。')
             st.write(files)
             st.button('清空已有文件', on_click=remove)
-            delefile = st.selectbox('选择需要删除文件',glob('results/*.png'))
-            if st.button('删除文件'):
-                os.remove(os.path.dirname(__file__)+'/'+delefile)
+            delefile = st.selectbox('选择需要删除文件',glob('results/*'))
+            # if st.button('删除文件'):
+            #     dele_path = os.path.dirname(__file__)+'/'+delefile
+                
+            #     st.info(f'你打算删除{dele_path}对吗？')
+            #     is_true = st.checkbox('同意')
+            #     if st.button('确认'):
+            #         os.remove(dele_path)
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
@@ -48,7 +53,7 @@ def main():
             
         
         if st.button('合成pdf文件',key='hecheng'):
-            if glob('results/*.pdf'):
+            if not glob('results/*.pdf'):
                 img_list = glob('results/*.png')
                 img2pdf = Img2pdf(img_list)
                 img2pdf.save_pdf()
