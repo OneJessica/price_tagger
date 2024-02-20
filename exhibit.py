@@ -44,7 +44,7 @@ def main():
         if files:
             st.warning('文件夹含有不相关早期内容，请及时清理。')
             st.write(files)
-            st.button('清空已有文件', on_click=remove)
+            st.button('清空所有文件', on_click=remove)
             delefile = st.selectbox('选择需要删除文件',glob('results/*'))
             if st.button('删除文件'):
                
