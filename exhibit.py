@@ -53,10 +53,11 @@ def main():
             
         
         if st.button('合成pdf文件',key='hecheng'):
-            if not glob('results/*.pdf'):
-                img_list = glob('results/*.png')
-                img2pdf = Img2pdf(img_list)
-                img2pdf.save_pdf()
+            
+            img_list = glob('results/*.png')
+            img2pdf = Img2pdf(img_list)
+            img2pdf.save_pdf()
+            if glob('results/*.pdf'):
                 pdf = st.selectbox('选择需要下载的pdf文件',glob('results/*.pdf'),key='xiazai')
     
                 try:
