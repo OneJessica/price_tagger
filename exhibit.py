@@ -41,21 +41,26 @@ def main():
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
-        if st.button('合成pdf文件',key='hecheng'):
-            img_list = glob('results/*.png')
-            img2pdf = Img2pdf(img_list)
-            img2pdf.save_pdf()
-            pdf = st.selectbox('选择需要下载的pdf文件',glob('results/*.pdf'),key='xiazai')
-
-            try:
-                with open(pdf,'rb') as file:
-                    st.download_button(
-                    label = '下载合并后的pdf文件',
-                        data =  file,
-                        file_name="dowloaded.pdf",
-                        mime = 'application/octet-stream')
-            except:
-                pass
+        if glob('results/*.pdf'):
+            
+        
+            if st.button('合成pdf文件',key='hecheng'):
+                img_list = glob('results/*.png')
+                img2pdf = Img2pdf(img_list)
+                img2pdf.save_pdf()
+                pdf = st.selectbox('选择需要下载的pdf文件',glob('results/*.pdf'),key='xiazai')
+    
+                try:
+                    with open(pdf,'rb') as file:
+                        st.download_button(
+                        label = '下载合并后的pdf文件',
+                            data =  file,
+                            file_name="dowloaded.pdf",
+                            mime = 'application/octet-stream')
+                except:
+                    pass
+            else:
+                st.write('暂无pdf文件')
 
 
     with tab1:
