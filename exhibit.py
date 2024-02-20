@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components 
 from price_tagger import Add,Img2pdf
-from price_tagger.code_spider import CodeSpider
+# from price_tagger.code_spider import CodeSpider
 # from price_tagger.decoder import decodeDisplay
 from glob import glob
 import os
@@ -147,27 +147,28 @@ def main():
     with tab2:
         st.title('条码查询')
         with st.expander('扫描',expanded = True):
+            st.write('加入中...')
 
-            codespider = CodeSpider()
+            # codespider = CodeSpider()
 
-            def get_info(barcode):
-                return codespider.requestT1(barcode)
-            barcode = st.text_input('扫条形码')
-            data_dict = get_info(barcode)
-            st.write(data_dict)
-            if data_dict['msg'] != '查询成功':
-                st.info('请输入查询，再试一次或者换一个')
-                st.stop()
-            else:
-                json_dict = data_dict['json']
-                address = json_dict['code_address']
-                if address[:2] not in ['黑龙','内蒙',]:
-                    address = address[:2]
-                else:
-                    address = address[:3]
-                generate(json_dict['code_name'],json_dict['code_spec'],
-                        address,'',
-                        json_dict['code_unit'])
+            # def get_info(barcode):
+            #     return codespider.requestT1(barcode)
+            # barcode = st.text_input('扫条形码')
+            # data_dict = get_info(barcode)
+            # st.write(data_dict)
+            # if data_dict['msg'] != '查询成功':
+            #     st.info('请输入查询，再试一次或者换一个')
+            #     st.stop()
+            # else:
+            #     json_dict = data_dict['json']
+            #     address = json_dict['code_address']
+            #     if address[:2] not in ['黑龙','内蒙',]:
+            #         address = address[:2]
+            #     else:
+            #         address = address[:3]
+            #     generate(json_dict['code_name'],json_dict['code_spec'],
+            #             address,'',
+            #             json_dict['code_unit'])
 
     #     with st.form('条码查询'):
     #         code_cn = st.text_input('请输入条码')
