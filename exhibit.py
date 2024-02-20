@@ -26,13 +26,12 @@ def main():
     def remove():
         filedir = os.path.dirname(__file__)+'/results/*'
         for i in glob(filedir):
-            st.write('正在删除……')
-            st.write(i)
             os.remove(i)
+            st.write(f'已删除{i}')
     def remove_file(file):
         file_path = os.path.dirname(__file__)+'/'+file
         os.remove(file_path)
-        st.write(f'正在删除{file_path}')
+        st.write(f'已删除{file_path}')
     def write_data(text):
         with open('added_data.csv','a+') as f:
             #text = [name,spec,area,cata,unit,price]
@@ -109,8 +108,8 @@ def main():
             text = [name,spec,area,cata,unit,price]
             
 
-            if st.button('生成',key='shengcheng'+name):
-                write_data(text)
+            if st.button('生成',key='shengcheng'+name,on_click = write_data,kwargs={'text':text}):
+                
                 get_res(text)
                 img_list = glob('results/*.png')
                 for i in img_list:
