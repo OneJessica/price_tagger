@@ -27,11 +27,11 @@ def main():
         filedir = os.path.dirname(__file__)+'/results/*'
         for i in glob(filedir):
             os.remove(i)
-            st.success(f'已删除{i}')
+            st.toast(f'已删除{i}')
     def remove_file(file):
         file_path = os.path.dirname(__file__)+'/'+file
         os.remove(file_path)
-        st.success(f'已删除{file_path}')
+        st.toast(f'已删除{file_path}')
     def write_data(text):
         with open('added_data.csv','a+') as f:
             #text = [name,spec,area,cata,unit,price]
