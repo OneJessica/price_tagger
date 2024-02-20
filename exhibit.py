@@ -50,6 +50,7 @@ def main():
                 is_true = st.checkbox('同意',value =True)
                 if is_true and st.button('确认'):
                     os.remove(dele_path)
+                    st.write(f'已删除{dele_path}')
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
