@@ -32,7 +32,7 @@ def main():
     def write_data(text):
         with open('added_data.csv','a+') as f:
             #text = [name,spec,area,cata,unit,price]
-            f.write(', '.join(map(str,text)+'\n'))
+            f.write(', '.join(map(str,text))+'\n')
 
 
     with st.sidebar:
