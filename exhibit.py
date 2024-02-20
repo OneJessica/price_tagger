@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components 
 from price_tagger import Add,Img2pdf
-# from price_tagger.code_spider import CodeSpider
+from price_tagger.code_spider import CodeSpider
 # from price_tagger.decoder import decodeDisplay
 from glob import glob
 import os
