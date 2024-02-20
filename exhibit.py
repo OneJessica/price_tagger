@@ -29,6 +29,12 @@ def main():
             st.write('正在删除……')
             st.write(i)
             os.remove(i)
+    def remove_file(file):
+        filedir = os.path.dirname(__file__)+'file'
+        
+        st.write('正在删除……')
+        st.write(i)
+        os.remove(i)
     def write_data(text):
         with open('added_data.csv','a+') as f:
             #text = [name,spec,area,cata,unit,price]
@@ -44,13 +50,13 @@ def main():
             st.button('清空已有文件', on_click=remove)
             delefile = st.selectbox('选择需要删除文件',glob('results/*'))
             if st.button('删除文件'):
-                dele_path = os.path.dirname(__file__)+'/'+delefile
+               
                 
-                st.info(f'你打算删除{dele_path}对吗？')
+                st.info(f'你打算删除{delefile}对吗？')
                 is_true = st.checkbox('同意',value =True)
-                if is_true and st.button('确认'):
-                    os.remove(dele_path)
-                    st.write(f'已删除{dele_path}')
+                if is_true and st.button('确认',on_click=remove_file,kwargs={'file':delefile}):
+                    # os.remove(delefile)
+                    st.write(f'已删除{delefile}')
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
