@@ -30,11 +30,9 @@ def main():
             st.write(i)
             os.remove(i)
     def remove_file(file):
-        filedir = os.path.dirname(__file__)+'file'
-        
-        st.write('正在删除……')
-        st.write(i)
-        os.remove(i)
+        file_path = os.path.dirname(__file__)+'file'
+        os.remove(file_path)
+        st.write(f'正在删除{file_path}')
     def write_data(text):
         with open('added_data.csv','a+') as f:
             #text = [name,spec,area,cata,unit,price]
