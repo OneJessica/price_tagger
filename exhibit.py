@@ -47,8 +47,8 @@ def main():
                 dele_path = os.path.dirname(__file__)+'/'+delefile
                 
                 st.info(f'你打算删除{dele_path}对吗？')
-                is_true = st.checkbox('同意')
-                if st.button('确认'):
+                is_true = st.checkbox('同意',value =True)
+                if is_true and st.button('确认'):
                     os.remove(dele_path)
 
         else:
