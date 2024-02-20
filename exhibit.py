@@ -41,10 +41,11 @@ def main():
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
-        if glob('results/*.pdf'):
+        
             
         
-            if st.button('合成pdf文件',key='hecheng'):
+        if st.button('合成pdf文件',key='hecheng'):
+            if glob('results/*.pdf'):
                 img_list = glob('results/*.png')
                 img2pdf = Img2pdf(img_list)
                 img2pdf.save_pdf()
