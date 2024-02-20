@@ -29,6 +29,10 @@ def main():
             st.write('正在删除……')
             st.write(i)
             os.remove(i)
+    def write_data(text):
+        with open('added_data.csv','a+') as f:
+            #text = [name,spec,area,cata,unit,price]
+            f.write(', '.join(text)+'\n')
 
 
     with st.sidebar:
@@ -98,8 +102,10 @@ def main():
             unit = st.text_input('单位',value=unit,key=unit_key)
             price = st.number_input('价格',format='%2f',min_value=0.0,key='price'+name)
             text = [name,spec,area,cata,unit,price]
+            
 
             if st.button('生成',key='shengcheng'+name):
+                write_data(text)
                 get_res(text)
                 img_list = glob('results/*.png')
                 for i in img_list:
@@ -132,7 +138,11 @@ def main():
         def get_data():
             data = pd.read_csv('产品数据全量.csv',index_col = 0,keep_default_na=0)
             data = data.drop_duplicates(subset=['货号','通用名'])
-            return data
+            added_data = pd.read_csv('added_data.csv',header =None,index_col = 0,keep_default_na=0)
+            added_data.columns =['通用名','规格','产地','货号','单位','价格']
+            added_data = added_data.drop_duplicates(subset=['货号','通用名'])
+            return pd.concat([data,added_data],axis=0)
+        
         data = get_data()
         if 'info' not in st.session_state:
             st.session_state.info={'通用名':'',
