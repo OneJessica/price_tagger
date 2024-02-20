@@ -136,7 +136,7 @@ def main():
     with tab4:
         ## 库存搜索功能
         @st.cache_resource
-        def get_data(added = False):
+        def get_data():
             data = pd.read_csv('产品数据全量.csv',index_col = 0,keep_default_na=0)
             data = data.drop_duplicates(subset=['货号','通用名'])
             added_data = pd.read_csv('added_data.csv',header =None,index_col = 0,keep_default_na=0)
