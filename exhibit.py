@@ -39,13 +39,13 @@ def main():
             st.write(files)
             st.button('清空已有文件', on_click=remove)
             delefile = st.selectbox('选择需要删除文件',glob('results/*'))
-            # if st.button('删除文件'):
-            #     dele_path = os.path.dirname(__file__)+'/'+delefile
+            if st.button('删除文件'):
+                dele_path = os.path.dirname(__file__)+'/'+delefile
                 
-            #     st.info(f'你打算删除{dele_path}对吗？')
-            #     is_true = st.checkbox('同意')
-            #     if st.button('确认'):
-            #         os.remove(dele_path)
+                st.info(f'你打算删除{dele_path}对吗？')
+                is_true = st.checkbox('同意')
+                if st.button('确认'):
+                    os.remove(dele_path)
 
         else:
             st.sidebar.write('结果文件夹为空，请放心使用')
