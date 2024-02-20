@@ -139,7 +139,7 @@ def main():
         def get_data():
             data = pd.read_csv('产品数据全量.csv',index_col = 0,keep_default_na=0)
             data = data.drop_duplicates(subset=['货号','通用名'])
-            added_data = pd.read_csv('added_data.csv',header =None,index_col = 0,keep_default_na=0)
+            # added_data = pd.read_csv('added_data.csv',header =None,index_col = 0,keep_default_na=0)
             
             # if added and len(added_data)>0:
             #     added_data.columns =['通用名','规格','产地','货号','单位','价格']
